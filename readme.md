@@ -10,5 +10,30 @@ The background paper is(replication):
 
 This code implements Query 10 (a bit different) from the TPC-H benchmark, and the query statement is presented below. The purpose of Q10 is to retrieve information about customers and the losses incurred due to shipping issues in each country, specifically within a three-year timeframe starting from a specific date.
 
-![image-20231221104214343](.\img\img.png)
+```sql
+select
+	c_custkey, c_name, 
+	sum(l_extendedprice * (1 - l_discount)) as revenue, 
+	c_acctbal,
+	n_name, c_address, c_phone, c_comment 
+from
+	customer, orders, lineitem, nation
+where
+	c_custkey = o_custkey
+	and l_orderkey = o_orderkey
+	and o_orderdate >= date '1993-3-15' 
+	and o_orderdate < date '1996-3-15' 
+	and l_returnflag = 'R' 
+	and c_nationkey = n_nationkey
+group by
+	c_custkey,
+	c_name,
+	c_acctbal,
+	c_phone,
+	n_name,
+	c_address,
+	c_comment
+```
+
+
 
