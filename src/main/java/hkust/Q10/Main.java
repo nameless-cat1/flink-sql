@@ -24,14 +24,14 @@ public class Main {
 
 
     public static void main(String[] args) throws Exception {
-        String input_path = "./input_data/input_data_0_001G.csv";
-        String output_path = "./input_data/output_data_0_001G.csv";
+//        String input_path = "./input_data/input_data_0_001G.csv";
+//        String output_path = "./input_data/output_data_0_001G.csv";
 //        String path = args[0];
 //        String input_path = "file:///home/nameless-cat/flink-data/input_data_0_001G.csv";
 //        String output_path = "file:///home/nameless-cat/flink-data/output_data_0_001G.csv";
 
-//        String input_path = args[0];
-//        String output_path = args[1];
+        String input_path = args[0];
+        String output_path = args[1];
 
         StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 //        env.setParallelism(1);
